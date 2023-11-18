@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pending Requests</title>
+</head>
+<body>
+  <h1>Pending Requests</h1>
+  <ul>
+     <% pendingRequests.forEach(request => { %>
+        <li>
+          <strong>Title:</strong> <%= request.title %><br>
+          <strong>Description:</strong> <%= request.description %><br>
+          <strong>University ID:</strong> <%= request.university_id %><br>
+          <strong>Fund:</strong> <%= request.fund %><br>
+          <strong>PDF File:</strong> 
+          <% if (request.student_proof) { %>
+            <a href="../assets/uploads/<%= request.student_proof %>" target="_blank">View PDF</a>
+          <% } else { %>
+            No PDF attached
+          <% } %>
+          <!-- Add more details as needed -->
+        </li>
+      <% }); %>
+  </ul>
+</body>
+</html>
